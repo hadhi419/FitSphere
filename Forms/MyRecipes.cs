@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace FitSphere.Forms
 {
-    public partial class Home : Form
+    public partial class MyRecipes : Form
     {
-        string currentUser;
-        public Home(String username)
+        String currentUser;
+        public MyRecipes(String username)
         {
             InitializeComponent();
 
-            currentUser = username;
+            currentUser= username; ;
             lblUser.Text = username;
 
             timer1.Start();
@@ -67,9 +67,14 @@ namespace FitSphere.Forms
 
         private void btnMyRecipes_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
             
-            MyRecipes myRecipes = new MyRecipes(currentUser);
-            myRecipes.Show();
+            Home home = new Home(currentUser);
+            home.Show();
             this.Hide();
         }
     }

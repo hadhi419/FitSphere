@@ -1,6 +1,6 @@
 ﻿namespace FitSphere.Forms
 {
-    partial class Home
+    partial class MyRecipes
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            button1 = new Button();
+            btnHome = new Button();
             panel1 = new Panel();
             lblUser = new Label();
             btnCalculateValues = new Button();
@@ -47,19 +47,20 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnHome
             // 
-            button1.BackColor = Color.White;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.FromArgb(0, 192, 0);
-            button1.Location = new Point(1, 28);
-            button1.Name = "button1";
-            button1.Size = new Size(160, 48);
-            button1.TabIndex = 0;
-            button1.Text = "Home";
-            button1.UseVisualStyleBackColor = false;
+            btnHome.BackColor = Color.White;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHome.ForeColor = Color.FromArgb(128, 255, 128);
+            btnHome.Location = new Point(-5, 26);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(160, 50);
+            btnHome.TabIndex = 4;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // panel1
             // 
@@ -69,10 +70,10 @@
             panel1.Controls.Add(btnIngredients);
             panel1.Controls.Add(btnRecipes);
             panel1.Controls.Add(btnMyRecipes);
-            panel1.Location = new Point(1, 28);
+            panel1.Location = new Point(-5, 26);
             panel1.Name = "panel1";
             panel1.Size = new Size(1152, 50);
-            panel1.TabIndex = 1;
+            panel1.TabIndex = 5;
             // 
             // lblUser
             // 
@@ -136,10 +137,10 @@
             btnMyRecipes.FlatAppearance.BorderSize = 0;
             btnMyRecipes.FlatStyle = FlatStyle.Flat;
             btnMyRecipes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMyRecipes.ForeColor = Color.FromArgb(128, 255, 128);
+            btnMyRecipes.ForeColor = Color.FromArgb(0, 192, 0);
             btnMyRecipes.Location = new Point(160, 0);
             btnMyRecipes.Name = "btnMyRecipes";
-            btnMyRecipes.Size = new Size(160, 50);
+            btnMyRecipes.Size = new Size(160, 48);
             btnMyRecipes.TabIndex = 2;
             btnMyRecipes.Text = "My Recipes";
             btnMyRecipes.UseVisualStyleBackColor = false;
@@ -151,10 +152,10 @@
             panel2.Controls.Add(lblMealTime);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(-5, 0);
+            panel2.Location = new Point(-11, -2);
             panel2.Name = "panel2";
             panel2.Size = new Size(1144, 28);
-            panel2.TabIndex = 2;
+            panel2.TabIndex = 6;
             // 
             // lblMealTime
             // 
@@ -192,31 +193,29 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.bg_01_01;
-            pictureBox1.Location = new Point(-1, 78);
+            pictureBox1.Location = new Point(-7, 76);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1138, 534);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 3;
+            pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
             // timer1
             // 
             timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
             // 
-            // Home
+            // MyRecipes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1136, 609);
-            Controls.Add(pictureBox1);
-            Controls.Add(button1);
+            Controls.Add(btnHome);
             Controls.Add(panel1);
             Controls.Add(panel2);
-            MaximumSize = new Size(1152, 648);
-            Name = "Home";
+            Controls.Add(pictureBox1);
+            Name = "MyRecipes";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Home";
+            Text = "MyRecipes";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -227,18 +226,18 @@
 
         #endregion
 
-        private Button button1;
+        private Button btnHome;
         private Panel panel1;
+        private Label lblUser;
         private Button btnCalculateValues;
         private Button btnIngredients;
         private Button btnRecipes;
         private Button btnMyRecipes;
-        private Label lblUser;
         private Panel panel2;
+        private Label lblMealTime;
+        private Label label2;
         private Label label1;
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
-        private Label label2;
-        private Label lblMealTime;
     }
 }
