@@ -17,7 +17,7 @@ namespace FitSphere.Forms
         {
             InitializeComponent();
 
-            currentUser= username; ;
+            currentUser = username; ;
             lblUser.Text = username;
 
             timer1.Start();
@@ -72,10 +72,17 @@ namespace FitSphere.Forms
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            
+
             Home home = new Home(currentUser);
             home.Show();
             this.Hide();
+        }
+
+        private void btnRecipes_Click(object sender, EventArgs e)
+        {
+            Recipes recipes = new Recipes(currentUser);
+            this.Hide();
+            recipes.Show();
         }
     }
 }

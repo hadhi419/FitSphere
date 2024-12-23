@@ -61,7 +61,7 @@ namespace FitSphere
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error : " + e);
+                MessageBox.Show("Error : " + ex);
             }
 
         }

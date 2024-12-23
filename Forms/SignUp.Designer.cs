@@ -41,7 +41,7 @@
             // 
             // btnSignup
             // 
-            btnSignup.BackColor = Color.FromArgb(0, 192, 0);
+            btnSignup.BackColor = Color.OrangeRed;
             btnSignup.FlatAppearance.BorderSize = 0;
             btnSignup.FlatStyle = FlatStyle.Flat;
             btnSignup.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -59,7 +59,7 @@
             btnBackLogin.BackColor = Color.White;
             btnBackLogin.FlatAppearance.BorderSize = 0;
             btnBackLogin.FlatStyle = FlatStyle.Flat;
-            btnBackLogin.ForeColor = Color.FromArgb(0, 192, 0);
+            btnBackLogin.ForeColor = Color.OrangeRed;
             btnBackLogin.Location = new Point(172, 330);
             btnBackLogin.Name = "btnBackLogin";
             btnBackLogin.Size = new Size(106, 23);
@@ -86,8 +86,9 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(113, 259);
+            txtPassword.Location = new Point(113, 253);
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.PlaceholderText = "Password";
             txtPassword.Size = new Size(232, 23);
             txtPassword.TabIndex = 15;

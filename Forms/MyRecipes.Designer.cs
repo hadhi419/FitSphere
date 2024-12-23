@@ -49,11 +49,11 @@
             // 
             // btnHome
             // 
-            btnHome.BackColor = Color.White;
+            btnHome.BackColor = Color.OrangeRed;
             btnHome.FlatAppearance.BorderSize = 0;
             btnHome.FlatStyle = FlatStyle.Flat;
             btnHome.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHome.ForeColor = Color.FromArgb(128, 255, 128);
+            btnHome.ForeColor = Color.White;
             btnHome.Location = new Point(-5, 26);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(160, 50);
@@ -64,12 +64,13 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.DarkOrange;
+            panel1.BackColor = Color.OrangeRed;
             panel1.Controls.Add(lblUser);
             panel1.Controls.Add(btnCalculateValues);
             panel1.Controls.Add(btnIngredients);
             panel1.Controls.Add(btnRecipes);
             panel1.Controls.Add(btnMyRecipes);
+            panel1.ForeColor = Color.White;
             panel1.Location = new Point(-5, 26);
             panel1.Name = "panel1";
             panel1.Size = new Size(1152, 50);
@@ -78,7 +79,7 @@
             // lblUser
             // 
             lblUser.AutoSize = true;
-            lblUser.BackColor = Color.DarkOrange;
+            lblUser.BackColor = Color.OrangeRed;
             lblUser.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUser.ForeColor = Color.White;
             lblUser.Location = new Point(1015, 19);
@@ -91,11 +92,11 @@
             // 
             // btnCalculateValues
             // 
-            btnCalculateValues.BackColor = Color.White;
+            btnCalculateValues.BackColor = Color.OrangeRed;
             btnCalculateValues.FlatAppearance.BorderSize = 0;
             btnCalculateValues.FlatStyle = FlatStyle.Flat;
             btnCalculateValues.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCalculateValues.ForeColor = Color.FromArgb(128, 255, 128);
+            btnCalculateValues.ForeColor = Color.White;
             btnCalculateValues.Location = new Point(640, 0);
             btnCalculateValues.Name = "btnCalculateValues";
             btnCalculateValues.Size = new Size(160, 50);
@@ -105,11 +106,11 @@
             // 
             // btnIngredients
             // 
-            btnIngredients.BackColor = Color.White;
+            btnIngredients.BackColor = Color.OrangeRed;
             btnIngredients.FlatAppearance.BorderSize = 0;
             btnIngredients.FlatStyle = FlatStyle.Flat;
             btnIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnIngredients.ForeColor = Color.FromArgb(128, 255, 128);
+            btnIngredients.ForeColor = Color.White;
             btnIngredients.Location = new Point(480, 0);
             btnIngredients.Name = "btnIngredients";
             btnIngredients.Size = new Size(160, 50);
@@ -119,17 +120,18 @@
             // 
             // btnRecipes
             // 
-            btnRecipes.BackColor = Color.White;
+            btnRecipes.BackColor = Color.OrangeRed;
             btnRecipes.FlatAppearance.BorderSize = 0;
             btnRecipes.FlatStyle = FlatStyle.Flat;
             btnRecipes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRecipes.ForeColor = Color.FromArgb(128, 255, 128);
+            btnRecipes.ForeColor = Color.White;
             btnRecipes.Location = new Point(320, 0);
             btnRecipes.Name = "btnRecipes";
             btnRecipes.Size = new Size(160, 50);
             btnRecipes.TabIndex = 3;
             btnRecipes.Text = "Recipes";
             btnRecipes.UseVisualStyleBackColor = false;
+            btnRecipes.Click += btnRecipes_Click;
             // 
             // btnMyRecipes
             // 
@@ -137,10 +139,10 @@
             btnMyRecipes.FlatAppearance.BorderSize = 0;
             btnMyRecipes.FlatStyle = FlatStyle.Flat;
             btnMyRecipes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMyRecipes.ForeColor = Color.FromArgb(0, 192, 0);
+            btnMyRecipes.ForeColor = Color.OrangeRed;
             btnMyRecipes.Location = new Point(160, 0);
             btnMyRecipes.Name = "btnMyRecipes";
-            btnMyRecipes.Size = new Size(160, 48);
+            btnMyRecipes.Size = new Size(160, 50);
             btnMyRecipes.TabIndex = 2;
             btnMyRecipes.Text = "My Recipes";
             btnMyRecipes.UseVisualStyleBackColor = false;
@@ -148,7 +150,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Green;
+            panel2.BackColor = Color.White;
             panel2.Controls.Add(lblMealTime);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
@@ -161,7 +163,7 @@
             // 
             lblMealTime.AutoSize = true;
             lblMealTime.BackColor = Color.Transparent;
-            lblMealTime.ForeColor = Color.White;
+            lblMealTime.ForeColor = Color.OrangeRed;
             lblMealTime.Location = new Point(820, 7);
             lblMealTime.Name = "lblMealTime";
             lblMealTime.Size = new Size(38, 15);
@@ -172,7 +174,7 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.ForeColor = Color.White;
+            label2.ForeColor = Color.OrangeRed;
             label2.Location = new Point(1059, 7);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
@@ -184,7 +186,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(10, 7);
+            label1.Location = new Point(13, 7);
             label1.Name = "label1";
             label1.Size = new Size(54, 13);
             label1.TabIndex = 3;
@@ -193,7 +195,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.bg_01_01;
-            pictureBox1.Location = new Point(-7, 76);
+            pictureBox1.Location = new Point(-2, 76);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1138, 534);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;

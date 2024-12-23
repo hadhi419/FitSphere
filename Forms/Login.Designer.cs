@@ -55,7 +55,7 @@
             btnBackToSignup.BackColor = Color.White;
             btnBackToSignup.FlatAppearance.BorderSize = 0;
             btnBackToSignup.FlatStyle = FlatStyle.Flat;
-            btnBackToSignup.ForeColor = Color.FromArgb(0, 192, 0);
+            btnBackToSignup.ForeColor = Color.OrangeRed;
             btnBackToSignup.Location = new Point(176, 300);
             btnBackToSignup.Name = "btnBackToSignup";
             btnBackToSignup.Size = new Size(106, 23);
@@ -66,7 +66,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.FromArgb(0, 192, 0);
+            btnLogin.BackColor = Color.OrangeRed;
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);

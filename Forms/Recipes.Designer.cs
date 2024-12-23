@@ -1,6 +1,6 @@
 ﻿namespace FitSphere.Forms
 {
-    partial class Home
+    partial class Recipes
     {
         /// <summary>
         /// Required designer variable.
@@ -40,26 +40,32 @@
             lblMealTime = new Label();
             label2 = new Label();
             label1 = new Label();
-            pictureBox1 = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            txtSearch = new TextBox();
+            btnSearch = new Button();
+            flowLayoutRecipes = new FlowLayoutPanel();
+            button2 = new Button();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            flowLayoutRecipes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.BackColor = Color.Snow;
+            button1.BackColor = Color.OrangeRed;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.OrangeRed;
-            button1.Location = new Point(1, 28);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(-5, 26);
             button1.Name = "button1";
             button1.Size = new Size(160, 50);
-            button1.TabIndex = 0;
+            button1.TabIndex = 4;
             button1.Text = "Home";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // panel1
             // 
@@ -69,18 +75,18 @@
             panel1.Controls.Add(btnIngredients);
             panel1.Controls.Add(btnRecipes);
             panel1.Controls.Add(btnMyRecipes);
-            panel1.ForeColor = Color.White;
-            panel1.Location = new Point(1, 28);
+            panel1.ForeColor = SystemColors.ActiveCaption;
+            panel1.Location = new Point(-5, 26);
             panel1.Name = "panel1";
             panel1.Size = new Size(1152, 50);
-            panel1.TabIndex = 1;
+            panel1.TabIndex = 5;
             // 
             // lblUser
             // 
             lblUser.AutoSize = true;
-            lblUser.BackColor = Color.OrangeRed;
+            lblUser.BackColor = Color.Transparent;
             lblUser.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUser.ForeColor = Color.White;
+            lblUser.ForeColor = Color.PaleTurquoise;
             lblUser.Location = new Point(1015, 19);
             lblUser.Margin = new Padding(3);
             lblUser.MaximumSize = new Size(140, 15);
@@ -119,18 +125,17 @@
             // 
             // btnRecipes
             // 
-            btnRecipes.BackColor = Color.OrangeRed;
+            btnRecipes.BackColor = Color.LightYellow;
             btnRecipes.FlatAppearance.BorderSize = 0;
             btnRecipes.FlatStyle = FlatStyle.Flat;
             btnRecipes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRecipes.ForeColor = Color.White;
+            btnRecipes.ForeColor = Color.OrangeRed;
             btnRecipes.Location = new Point(320, 0);
             btnRecipes.Name = "btnRecipes";
             btnRecipes.Size = new Size(160, 50);
             btnRecipes.TabIndex = 3;
             btnRecipes.Text = "Recipes";
             btnRecipes.UseVisualStyleBackColor = false;
-            btnRecipes.Click += btnRecipes_Click;
             // 
             // btnMyRecipes
             // 
@@ -149,14 +154,14 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.White;
+            panel2.BackColor = Color.Ivory;
             panel2.Controls.Add(lblMealTime);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(-5, 0);
+            panel2.Location = new Point(-11, -2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1144, 28);
-            panel2.TabIndex = 2;
+            panel2.Size = new Size(1155, 28);
+            panel2.TabIndex = 6;
             // 
             // lblMealTime
             // 
@@ -191,57 +196,106 @@
             label1.TabIndex = 3;
             label1.Text = "fitSphere";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.bg_01_01;
-            pictureBox1.Location = new Point(-1, 78);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1138, 534);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
-            // 
             // timer1
             // 
             timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
             // 
-            // Home
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtSearch.ForeColor = Color.OrangeRed;
+            txtSearch.Location = new Point(12, 82);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(1001, 23);
+            txtSearch.TabIndex = 7;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.OrangeRed;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(1019, 82);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(104, 23);
+            btnSearch.TabIndex = 8;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // flowLayoutRecipes
+            // 
+            flowLayoutRecipes.AutoScroll = true;
+            flowLayoutRecipes.BackColor = Color.Transparent;
+            flowLayoutRecipes.Controls.Add(button2);
+            flowLayoutRecipes.Controls.Add(pictureBox1);
+            flowLayoutRecipes.Location = new Point(12, 121);
+            flowLayoutRecipes.Name = "flowLayoutRecipes";
+            flowLayoutRecipes.Size = new Size(1111, 476);
+            flowLayoutRecipes.TabIndex = 9;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(3, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(0, 0);
+            button2.TabIndex = 0;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.snanks;
+            pictureBox1.Location = new Point(3, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1145, 545);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
+            // Recipes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1136, 609);
-            Controls.Add(pictureBox1);
+            Controls.Add(flowLayoutRecipes);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearch);
             Controls.Add(button1);
             Controls.Add(panel1);
             Controls.Add(panel2);
-            MaximumSize = new Size(1152, 648);
-            Name = "Home";
+            Name = "Recipes";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Home";
-            Load += Home_Load;
+            Text = "Recipes";
+            Load += Recipes_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            flowLayoutRecipes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button button1;
         private Panel panel1;
+        private Label lblUser;
         private Button btnCalculateValues;
         private Button btnIngredients;
         private Button btnRecipes;
         private Button btnMyRecipes;
-        private Label lblUser;
         private Panel panel2;
-        private Label label1;
-        private PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timer1;
-        private Label label2;
         private Label lblMealTime;
+        private Label label2;
+        private Label label1;
+        private System.Windows.Forms.Timer timer1;
+        private TextBox txtSearch;
+        private Button btnSearch;
+        private FlowLayoutPanel flowLayoutRecipes;
+        private Button button2;
+        private PictureBox pictureBox1;
     }
 }

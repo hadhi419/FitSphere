@@ -67,10 +67,22 @@ namespace FitSphere.Forms
 
         private void btnMyRecipes_Click(object sender, EventArgs e)
         {
-            
+
             MyRecipes myRecipes = new MyRecipes(currentUser);
             myRecipes.Show();
             this.Hide();
+        }
+
+        private void btnRecipes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Recipes recipes = new Recipes(currentUser);
+            recipes.Show();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
