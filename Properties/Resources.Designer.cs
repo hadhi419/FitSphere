@@ -63,6 +63,16 @@ namespace FitSphere.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alevate_01 {
+            get {
+                object obj = ResourceManager.GetObject("alevate-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bg_01 {
             get {
                 object obj = ResourceManager.GetObject("bg-01", resourceCulture);
@@ -96,6 +106,56 @@ namespace FitSphere.Properties {
         internal static System.Drawing.Bitmap ingredients {
             get {
                 object obj = ResourceManager.GetObject("ingredients", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoOrange_01_01 {
+            get {
+                object obj = ResourceManager.GetObject("logoOrange-01-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoOrange_01_02 {
+            get {
+                object obj = ResourceManager.GetObject("logoOrange-01-02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoOrange_01_021 {
+            get {
+                object obj = ResourceManager.GetObject("logoOrange-01-021", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoOrange_01_022 {
+            get {
+                object obj = ResourceManager.GetObject("logoOrange-01-022", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoOrange_02 {
+            get {
+                object obj = ResourceManager.GetObject("logoOrange-02", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

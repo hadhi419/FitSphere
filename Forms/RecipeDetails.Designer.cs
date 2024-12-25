@@ -32,6 +32,9 @@
             lblRecipeName = new Label();
             label1 = new Label();
             panel1 = new Panel();
+            pictureRecipe = new PictureBox();
+            txtDirections = new TextBox();
+            label4 = new Label();
             button2 = new Button();
             btnChangePortion = new Button();
             label3 = new Label();
@@ -40,6 +43,7 @@
             label2 = new Label();
             txtIngredients = new TextBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureRecipe).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nmrcPortion).BeginInit();
             SuspendLayout();
             // 
@@ -77,7 +81,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(14, 182);
+            label1.Location = new Point(14, 174);
             label1.Name = "label1";
             label1.Size = new Size(130, 22);
             label1.TabIndex = 3;
@@ -87,6 +91,9 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureRecipe);
+            panel1.Controls.Add(txtDirections);
+            panel1.Controls.Add(label4);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(btnChangePortion);
             panel1.Controls.Add(label3);
@@ -97,10 +104,43 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(txtDescription);
             panel1.Controls.Add(lblRecipeName);
-            panel1.Location = new Point(-5, 0);
+            panel1.Location = new Point(-5, -13);
             panel1.Name = "panel1";
-            panel1.Size = new Size(604, 629);
+            panel1.Size = new Size(1149, 629);
             panel1.TabIndex = 4;
+            // 
+            // pictureRecipe
+            // 
+            pictureRecipe.Location = new Point(622, 35);
+            pictureRecipe.Name = "pictureRecipe";
+            pictureRecipe.Size = new Size(100, 100);
+            pictureRecipe.TabIndex = 23;
+            pictureRecipe.TabStop = false;
+            // 
+            // txtDirections
+            // 
+            txtDirections.BackColor = Color.PeachPuff;
+            txtDirections.BorderStyle = BorderStyle.None;
+            txtDirections.ForeColor = Color.Black;
+            txtDirections.Location = new Point(603, 203);
+            txtDirections.Multiline = true;
+            txtDirections.Name = "txtDirections";
+            txtDirections.ScrollBars = ScrollBars.Both;
+            txtDirections.Size = new Size(496, 344);
+            txtDirections.TabIndex = 22;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ActiveCaptionText;
+            label4.Location = new Point(603, 178);
+            label4.Name = "label4";
+            label4.Size = new Size(119, 22);
+            label4.TabIndex = 21;
+            label4.Text = "Directions : ";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // button2
             // 
@@ -109,7 +149,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Snow;
-            button2.Location = new Point(427, 564);
+            button2.Location = new Point(986, 566);
             button2.Name = "button2";
             button2.Size = new Size(113, 33);
             button2.TabIndex = 1;
@@ -119,7 +159,7 @@
             // 
             // btnChangePortion
             // 
-            btnChangePortion.BackColor = Color.OrangeRed;
+            btnChangePortion.BackColor = Color.Tomato;
             btnChangePortion.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 128);
             btnChangePortion.FlatStyle = FlatStyle.Flat;
             btnChangePortion.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -160,11 +200,11 @@
             txtNutrition.BackColor = Color.PeachPuff;
             txtNutrition.BorderStyle = BorderStyle.None;
             txtNutrition.ForeColor = Color.Black;
-            txtNutrition.Location = new Point(13, 408);
+            txtNutrition.Location = new Point(13, 457);
             txtNutrition.Multiline = true;
             txtNutrition.Name = "txtNutrition";
             txtNutrition.ScrollBars = ScrollBars.Both;
-            txtNutrition.Size = new Size(546, 137);
+            txtNutrition.Size = new Size(451, 90);
             txtNutrition.TabIndex = 6;
             // 
             // label2
@@ -173,7 +213,7 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(13, 374);
+            label2.Location = new Point(14, 427);
             label2.Name = "label2";
             label2.Size = new Size(187, 22);
             label2.TabIndex = 5;
@@ -185,24 +225,25 @@
             txtIngredients.BackColor = Color.PeachPuff;
             txtIngredients.BorderStyle = BorderStyle.None;
             txtIngredients.ForeColor = Color.Black;
-            txtIngredients.Location = new Point(14, 216);
+            txtIngredients.Location = new Point(14, 203);
             txtIngredients.Multiline = true;
             txtIngredients.Name = "txtIngredients";
             txtIngredients.ScrollBars = ScrollBars.Both;
-            txtIngredients.Size = new Size(545, 137);
+            txtIngredients.Size = new Size(450, 200);
             txtIngredients.TabIndex = 20;
             // 
             // RecipeDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(577, 609);
+            ClientSize = new Size(1136, 609);
             Controls.Add(panel1);
             Name = "RecipeDetails";
             Text = "RecipeDetails";
             Load += RecipeDetails_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureRecipe).EndInit();
             ((System.ComponentModel.ISupportInitialize)nmrcPortion).EndInit();
             ResumeLayout(false);
         }
@@ -220,5 +261,8 @@
         private NumericUpDown nmrcPortion;
         private Button btnChangePortion;
         public Button button2;
+        private TextBox txtDirections;
+        public Label label4;
+        private PictureBox pictureRecipe;
     }
 }

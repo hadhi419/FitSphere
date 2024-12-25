@@ -1,4 +1,5 @@
 ﻿using fatSecret.Classes;
+using FitSphere.API;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using FitSphere.API;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static Google.Apis.Requests.BatchRequest;
+using fatSecret.classes;
+
 namespace FitSphere.Forms
 {
     public partial class RecipeDetails : Form
@@ -18,9 +30,10 @@ namespace FitSphere.Forms
         String description;
         List<Ingredient1> ingredients;
         Serving servings;
+        List<Direction> directions;
         decimal portianSize = 1;
 
-        public RecipeDetails(String description, List<Ingredient1> ingredients, Serving servings)
+        public RecipeDetails(String description, List<Ingredient1> ingredients, Serving servings, List<Direction> directions,string recipeName)
         {
             InitializeComponent();
             description = description;
@@ -29,6 +42,58 @@ namespace FitSphere.Forms
             //MessageBox.Show(servings.protein);
             displayIngredients(ingredients);
             displayServings(servings);
+            displayDirections(directions);
+            //updatePicture(recipeName);
+
+
+
+
+
+        }
+
+        public async void updatePicture(String recipeName)
+        {
+            GetPicture getPicture = new GetPicture();   
+
+            string jsonResponse = await getPicture.LoadPicture(recipeName);
+
+
+            try
+            {
+                // Parse JSON
+                JObject json = JObject.Parse(jsonResponse);
+
+                // Extract the first result's medium image URL
+                string imageUrl = json["results"]?[0]?["urls"]?["regular"]?.ToString();
+
+
+                //textBox1.Text = (jsonResponse);
+
+                if (!string.IsNullOrEmpty(imageUrl))
+                {
+                    // Download the image
+                    using (HttpClient client = new HttpClient())
+                    {
+                        byte[] imageBytes = await client.GetByteArrayAsync(imageUrl);
+
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            // Load the image and set it to PictureBox
+                            Image img = Image.FromStream(ms);
+                            pictureRecipe.SizeMode = PictureBoxSizeMode.Zoom;
+                            pictureRecipe.Image = img;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No image URL found in the JSON response.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
 
         }
 
@@ -45,6 +110,26 @@ namespace FitSphere.Forms
 
                 // MessageBox.Show(ingredientsStringBuilder.ToString());
                 txtIngredients.Text = ingredientsStringBuilder.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+        }
+        
+        public void displayDirections(List<Direction> directions)
+        {
+            if (ingredients != null)
+            {
+                StringBuilder directionsStringBuilder = new StringBuilder();
+
+                foreach (var i in directions)
+                {
+                    directionsStringBuilder.AppendLine($"{i.direction_number} - {i.direction_description}");
+                }
+
+                // MessageBox.Show(ingredientsStringBuilder.ToString());
+                txtDirections.Text = directionsStringBuilder.ToString();
             }
             else
             {

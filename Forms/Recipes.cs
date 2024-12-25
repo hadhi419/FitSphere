@@ -11,6 +11,7 @@ namespace FitSphere.Forms
         decimal servingSize = 1;
         List<Ingredient1> ingredients;
         Serving servings;
+        List<Direction> directions;
         public Recipes(String username)
         {
             InitializeComponent();
@@ -173,11 +174,15 @@ namespace FitSphere.Forms
                     // Extract ingredients from the response
                     ingredients = jsonResponse.recipe.ingredients?.ingredient;
                     servings = jsonResponse.recipe.serving_sizes?.serving;
+                    directions = jsonResponse.recipe.directions?.direction;
 
 
 
 
-                    recipeDetails = new RecipeDetails(description, ingredients, servings);
+
+                   
+                    recipeDetails = new RecipeDetails(description, ingredients, servings, directions, recipe.recipe_name);
+
                     recipeDetails.txtDescription.Text = description;
                     recipeDetails.lblRecipeName.Text = recipe.recipe_name;
 

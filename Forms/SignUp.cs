@@ -46,13 +46,20 @@ namespace FitSphere
                         }
                         else
                         {
+                            if (String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtPassword.Text) || String.IsNullOrEmpty(txtUsername.Text))
+                            {
 
-                            var data = GetVariables();
-                            DocumentReference docRef = db.Collection("Userdata").Document(data.Email);
-                            await docRef.SetAsync(data);
-                            Home home = new Home(data.Username);
-                            this.Hide();
-                            home.Show();
+                                MessageBox.Show("Every field is required!");
+                            }
+                            else
+                            {
+                                var data = GetVariables();
+                                DocumentReference docRef = db.Collection("Userdata").Document(data.Email);
+                                await docRef.SetAsync(data);
+                                Home home = new Home(data.Username);
+                                this.Hide();
+                                home.Show();
+                            }
                         }
 
                     }

@@ -56,11 +56,11 @@
             btnBackToSignup.FlatAppearance.BorderSize = 0;
             btnBackToSignup.FlatStyle = FlatStyle.Flat;
             btnBackToSignup.ForeColor = Color.OrangeRed;
-            btnBackToSignup.Location = new Point(176, 300);
+            btnBackToSignup.Location = new Point(129, 301);
             btnBackToSignup.Name = "btnBackToSignup";
-            btnBackToSignup.Size = new Size(106, 23);
+            btnBackToSignup.Size = new Size(200, 23);
             btnBackToSignup.TabIndex = 4;
-            btnBackToSignup.Text = "Back to signup";
+            btnBackToSignup.Text = "Don't have an account?";
             btnBackToSignup.UseVisualStyleBackColor = false;
             btnBackToSignup.Click += btnBackToLogin_Click;
             // 
@@ -106,7 +106,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.original_transparent_02_02;
+            pictureBox1.Image = Properties.Resources.logoOrange_01_02;
             pictureBox1.Location = new Point(117, -25);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(221, 228);

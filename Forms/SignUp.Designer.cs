@@ -109,7 +109,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.original_transparent_02_02;
+            pictureBox1.Image = Properties.Resources.logoOrange_01_021;
             pictureBox1.Location = new Point(119, -31);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(221, 228);

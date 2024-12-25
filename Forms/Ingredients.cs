@@ -1,15 +1,20 @@
-﻿using Newtonsoft.Json;
+﻿using FitSphere.API;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Google.Apis.Requests.BatchRequest;
 
 namespace FitSphere.Forms
 {
     public partial class Ingredients : Form
     {
         string currentUser;
+
+        string ingredient;
         public Ingredients(String username)
         {
             InitializeComponent();
@@ -20,7 +25,22 @@ namespace FitSphere.Forms
             timer1.Tick += timer1_Tick;
             timer1.Tick += showMeal;
 
+            pctrIngredient.SizeMode = PictureBoxSizeMode.Zoom;
+            LoadImageFromJsonResponse();
+
+
         }
+
+        private async void LoadImageFromJsonResponse()
+        {
+            // JSON response string (replace with your actual API call response)
+
+
+
+
+
+        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -118,7 +138,7 @@ namespace FitSphere.Forms
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            string ingredient = txtIngredient.Text;
+            ingredient = txtIngredient.Text;
             string quantity = txtQuantity.Text;
 
             // Check if either field is empty
@@ -138,25 +158,25 @@ namespace FitSphere.Forms
                 // Deserialize the JSON response into a Root object
                 fatSecret.classes.Root root = JsonConvert.DeserializeObject<fatSecret.classes.Root>(response);
 
-                MessageBox.Show(response);
+                //MessageBox.Show(response);
 
                 // Check if the response contains any items
                 if (root != null && root.items != null && root.items.Count > 0)
                 {
                     fatSecret.classes.Ingredient food = root.items[0]; // Get the first item in the list
 
-                    txtNutrition.Text =
-                        "serving_size_g  : " + food.serving_size_g.ToString() + Environment.NewLine +
-                        "Calories : " + food.calories + Environment.NewLine +
-                        "sugar_g : " + food.sugar_g + Environment.NewLine +
-                        "fiber_g : " + food.fiber_g + Environment.NewLine +
-                        "sodium_mg : " + food.sodium_mg + Environment.NewLine +
-                        "potassium_mg : " + food.potassium_mg + Environment.NewLine +
-                        "fat_saturated_g : " + food.fat_saturated_g + Environment.NewLine +
-                        "fat_total_g : " + food.fat_total_g + Environment.NewLine +
-                        "cholesterol_mg : " + food.cholesterol_mg + Environment.NewLine +
-                        "protein_g : " + food.protein_g + Environment.NewLine +
-                        "carbohydrates_total_g : " + food.carbohydrates_total_g;
+
+                    //"serving_size_g  : " + food.serving_size_g.ToString() + Environment.NewLine +
+                    txtCalories.Text = food.calories + Environment.NewLine;
+                    txtSugar.Text = food.sugar_g + Environment.NewLine;
+                    txtFibre.Text = food.fiber_g + Environment.NewLine;
+                    txtSodium.Text = food.sodium_mg + Environment.NewLine;
+                    txtPotassium.Text = food.potassium_mg + Environment.NewLine;
+                    txtFatSaturated.Text = food.fat_saturated_g + Environment.NewLine;
+                    txtTotalFat.Text = food.fat_total_g + Environment.NewLine;
+                    txtCholesterol.Text = food.cholesterol_mg + Environment.NewLine;
+                    txtProtein.Text = food.protein_g + Environment.NewLine;
+                    txtCarb.Text = food.carbohydrates_total_g + Environment.NewLine;
                 }
                 else
                 {
@@ -167,9 +187,103 @@ namespace FitSphere.Forms
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
+
+            GetPicture getPicture = new GetPicture();
+
+
+            string jsonResponse = await getPicture.LoadPicture($"Ingredient {ingredient}");
+
+
+            try
+            {
+                // Parse JSON
+                JObject json = JObject.Parse(jsonResponse);
+
+                // Extract the first result's medium image URL
+                string imageUrl = json["results"]?[0]?["urls"]?["regular"]?.ToString();
+
+
+                //textBox1.Text = (jsonResponse);
+
+                if (!string.IsNullOrEmpty(imageUrl))
+                {
+                    // Download the image
+                    using (HttpClient client = new HttpClient())
+                    {
+                        byte[] imageBytes = await client.GetByteArrayAsync(imageUrl);
+
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            // Load the image and set it to PictureBox
+                            Image img = Image.FromStream(ms);
+                            pctrIngredient.SizeMode = PictureBoxSizeMode.Zoom;
+                            pctrIngredient.Image = img;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No image URL found in the JSON response.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+        int i = 1;
+        private async void btnNext_Click(object sender, EventArgs e)
+        {
+            i++;
+
+            GetPicture getPicture = new GetPicture();
+
+
+            string jsonResponse = await getPicture.LoadPicture($"Cooking {ingredient}");
+
+
+            try
+            {
+                // Parse JSON
+                JObject json = JObject.Parse(jsonResponse);
+
+                // Extract the first result's medium image URL
+                string imageUrl = json["results"]?[i]?["urls"]?["regular"]?.ToString();
+
+
+                //textBox1.Text = (jsonResponse);
+
+                if (!string.IsNullOrEmpty(imageUrl))
+                {
+                    // Download the image
+                    using (HttpClient client = new HttpClient())
+                    {
+                        byte[] imageBytes = await client.GetByteArrayAsync(imageUrl);
+
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            // Load the image and set it to PictureBox
+                            Image img = Image.FromStream(ms);
+                            pctrIngredient.SizeMode = PictureBoxSizeMode.Zoom;
+                            pctrIngredient.Image = img;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No image URL found in the JSON response.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
