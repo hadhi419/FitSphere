@@ -84,5 +84,26 @@ namespace FitSphere.Forms
         {
 
         }
+
+        private void btnIngredients_Click(object sender, EventArgs e)
+        {
+            Ingredients ingredients = new Ingredients(currentUser);
+            this.Hide();
+            ingredients.Show();
+        }
+
+        private void btnIngredients_Click_1(object sender, EventArgs e)
+        {
+            Ingredients ingredients = new Ingredients(currentUser);
+            this.Hide();
+            ingredients.Show();
+        }
+
+        private void btnIngredients_Click_2(object sender, EventArgs e)
+        {
+            Ingredients ingredients = new Ingredients(currentUser);
+            this.Hide();
+            ingredients.Show();
+        }
     }
 }

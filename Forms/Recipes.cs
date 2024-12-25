@@ -20,7 +20,7 @@ namespace FitSphere.Forms
             timer1.Start();
             timer1.Tick += timer1_Tick;
             timer1.Tick += showMeal;
-            
+
 
 
         }
@@ -105,7 +105,7 @@ namespace FitSphere.Forms
             }
             else
             {
-                
+
                 DisplayRecipes(response.recipes.recipe);
             }
         }
@@ -131,14 +131,14 @@ namespace FitSphere.Forms
                     Font = new Font("Arial", 9, FontStyle.Bold),
                     TextAlign = ContentAlignment.MiddleLeft, // Left-align the text
                     FlatStyle = FlatStyle.Flat, // Set FlatStyle to Flat
-                     // Set margin of 10 pixels on all sides
+                                                // Set margin of 10 pixels on all sides
                 };
 
                 recipeButton.Click += RecipeButton_Click;
 
 
                 // Attach Click Event
-               // recipeButton.Click += RecipeButton_Click;
+                // recipeButton.Click += RecipeButton_Click;
 
                 // Add the button to the FlowLayoutPanel
                 flowLayoutRecipes.Controls.Add(recipeButton);
@@ -158,7 +158,7 @@ namespace FitSphere.Forms
 
                 // Display recipe details in a TextBox
                 String description =
-                    
+
                     $"Description: {recipe.recipe_description}\n\n" + Environment.NewLine +
                     $"Total Calories: {recipe.recipe_nutrition.calories}\n\n+" + Environment.NewLine +
                     $"Recipe Id: {recipe.recipe_id}";
@@ -176,14 +176,14 @@ namespace FitSphere.Forms
 
 
 
-                   
+
                     recipeDetails = new RecipeDetails(description, ingredients, servings);
                     recipeDetails.txtDescription.Text = description;
                     recipeDetails.lblRecipeName.Text = recipe.recipe_name;
 
                     recipeDetails.Show();
-                    
-                    
+
+
 
 
 
@@ -208,6 +208,11 @@ namespace FitSphere.Forms
 
         }
 
-        
+        private void btnIngredients_Click(object sender, EventArgs e)
+        {
+            Ingredients ingredients = new Ingredients(currentUser);
+            this.Hide();
+            ingredients.Show();
+        }
     }
 }

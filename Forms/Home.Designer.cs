@@ -116,6 +116,7 @@
             btnIngredients.TabIndex = 4;
             btnIngredients.Text = "Ingredients";
             btnIngredients.UseVisualStyleBackColor = false;
+            btnIngredients.Click += btnIngredients_Click_2;
             // 
             // btnRecipes
             // 
