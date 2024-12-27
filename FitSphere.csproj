@@ -7,7 +7,20 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <PlatformTarget>x86</PlatformTarget>
+    <ApplicationIcon>logoOrange-01-01.ico</ApplicationIcon>
+    <PackageIcon>logoOrange-01-02-01.ico</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="logoOrange-01-01.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\logoOrange-01-02-01.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />

@@ -13,6 +13,7 @@ namespace FitSphere
 
             InitializeComponent();
             // this.WindowState = FormWindowState.Maximized;
+            txtUsername.KeyPress += txtUsername_KeyPress;
         }
 
         private void btnBackLogin_Click(object sender, EventArgs e)
@@ -53,12 +54,21 @@ namespace FitSphere
                             }
                             else
                             {
-                                var data = GetVariables();
-                                DocumentReference docRef = db.Collection("Userdata").Document(data.Email);
-                                await docRef.SetAsync(data);
-                                Home home = new Home(data.Username);
-                                this.Hide();
-                                home.Show();
+                                if (txtPassword.Text.Length < 8) {
+                                        MessageBox.Show("Password should consist of at least 8 characters!",
+                                         "Validation Error",
+                                          MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+                                    var data = GetVariables();
+                                    DocumentReference docRef = db.Collection("Userdata").Document(data.Email);
+                                    await docRef.SetAsync(data);
+                                    Home home = new Home(data.Username);
+                                    this.Hide();
+                                    home.Show();
+                                }
                             }
                         }
 
@@ -137,6 +147,15 @@ namespace FitSphere
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow only letters, underscores, and spaces
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != '_' && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Reject the input
+            }
         }
     }
 }

@@ -2,6 +2,9 @@
 using fatSecret.Classes;
 using FitSphere.API;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+using static Google.Rpc.Context.AttributeContext.Types;
 
 namespace FitSphere.Forms
 {
@@ -85,29 +88,75 @@ namespace FitSphere.Forms
             this.Hide();
         }
 
+        private void btnCalculateValues_Click(object sender, EventArgs e)
+        {
+            CalcNutritionalVal calcNutritionalVal = new CalcNutritionalVal(currentUser);
+            this.Hide();
+            calcNutritionalVal.Show();
+        }
+
 
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
 
-            RecipeSearch recipeSearch = new RecipeSearch();
-            var response = await recipeSearch.LoadRecipes(txtSearch.Text);
-
-            if (response == null)
+            if (string.IsNullOrEmpty(txtSearch.Text) || string.IsNullOrEmpty(comboBox1.Text))
             {
-                MessageBox.Show("Response is null!");
-                return;
-            }
+               if(string.IsNullOrEmpty(txtSearch.Text) && !string.IsNullOrEmpty(comboBox1.Text))
+                {
+                    MessageBox.Show("Input a recipe name or an Ingredient", "Ohhh!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }else if(!string.IsNullOrEmpty(txtSearch.Text) && string.IsNullOrEmpty(comboBox1.Text))
+                {
+                    MessageBox.Show("Choose how you want to sort the result by droping down the 'Sort By", "Ohhh!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }else if (string.IsNullOrEmpty(txtSearch.Text) && string.IsNullOrEmpty(comboBox1.Text))
+                {
+                    MessageBox.Show("Input a recipe name or an Ingredient and Choose how you want to sort the result by droping down the 'Sort By\"", "Ohhh!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            // Check if the 'recipes' object is populated
-            if (response?.recipes?.recipe == null)
-            {
-                MessageBox.Show("No recipes found!");
+                }
+
             }
             else
             {
 
-                DisplayRecipes(response.recipes.recipe);
+                FitSphere.API.RecipeSearch recipeSearch = new FitSphere.API.RecipeSearch();
+                try
+                {
+                    string sortingMethod;
+                    if (comboBox1.Text== "High to Low Calories")
+                    {
+                        sortingMethod = "caloriesPerServingDescending";
+                    }
+                    else
+                    {
+                        sortingMethod = "caloriesPerServingAscending";
+                    }
+                    var response = await recipeSearch.LoadRecipes(txtSearch.Text,sortingMethod);
+
+                    if (response == null)
+                    {
+                        MessageBox.Show("Internal Error! (Response is Null)", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Check if the 'recipes' object is populated
+                    if (response?.recipes?.recipe == null)
+                    {
+                        MessageBox.Show("No recipes found!", "Ohhh!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                       // if(comboBox1.Text == "High to Low Calories")
+                        //{
+                        //    MessageBox.Show("high to low");
+                        //}
+
+                        DisplayRecipes(response.recipes.recipe);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Exception : " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -166,8 +215,16 @@ namespace FitSphere.Forms
 
 
 
-                GetRecipeById getRecipeById = new GetRecipeById();
-                var jsonResponse = await getRecipeById.LoadIngredients(recipe.recipe_id);
+                FitSphere.API.GetRecipeById getRecipeById = new FitSphere.API.GetRecipeById();
+                Root jsonResponse = await getRecipeById.LoadIngredients(recipe.recipe_id);
+
+
+
+
+
+
+
+                // MessageBox.Show(jsonResponse.ToString());
 
                 if (jsonResponse?.recipe != null)
                 {
@@ -175,13 +232,23 @@ namespace FitSphere.Forms
                     ingredients = jsonResponse.recipe.ingredients?.ingredient;
                     servings = jsonResponse.recipe.serving_sizes?.serving;
                     directions = jsonResponse.recipe.directions?.direction;
+                    string gramsPerPortion = jsonResponse.recipe.grams_per_portion;
+                    //string grams_per_portion = res.Content.
+                    //String gramsPerPortion = grams_per_portion;
+
+                    // var gramsPerPortion = recipe1.grams_per_portion;
 
 
 
 
 
-                   
-                    recipeDetails = new RecipeDetails(description, ingredients, servings, directions, recipe.recipe_name);
+
+
+
+
+
+                    recipeDetails = new RecipeDetails(description, ingredients, servings, directions, recipe.recipe_name,gramsPerPortion);
+
 
                     recipeDetails.txtDescription.Text = description;
                     recipeDetails.lblRecipeName.Text = recipe.recipe_name;
@@ -201,12 +268,12 @@ namespace FitSphere.Forms
                 }
                 else
                 {
-                    MessageBox.Show("No ingredients found.");
+                    MessageBox.Show("No ingredients found.", "Ohhh", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Recipe data not found in response.");
+                MessageBox.Show("Recipe data not found in response.", "Check your connection or Try another Recipe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -218,6 +285,13 @@ namespace FitSphere.Forms
             Ingredients ingredients = new Ingredients(currentUser);
             this.Hide();
             ingredients.Show();
+        }
+
+        private void btnCalculateValues_Click_1(object sender, EventArgs e)
+        {
+            CalcNutritionalVal calcNutritionalVal = new CalcNutritionalVal(currentUser);
+            this.Hide();
+            calcNutritionalVal.Show();
         }
     }
 }

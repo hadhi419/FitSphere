@@ -13,18 +13,36 @@ namespace FitSphere.Forms
     public partial class Home : Form
     {
         string currentUser;
-        public Home(String username)
+        string mail;
+        public Home(String username, string email)
         {
             InitializeComponent();
 
             currentUser = username;
             lblUser.Text = username;
+            mail = email;
 
             timer1.Start();
             timer1.Tick += timer1_Tick;
             timer1.Tick += showMeal;
 
         }
+        
+        public Home(String username)
+        {
+            InitializeComponent();
+
+            currentUser = username;
+            lblUser.Text = username;
+            
+
+            timer1.Start();
+            timer1.Tick += timer1_Tick;
+            timer1.Tick += showMeal;
+
+        }
+
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -104,6 +122,18 @@ namespace FitSphere.Forms
             Ingredients ingredients = new Ingredients(currentUser);
             this.Hide();
             ingredients.Show();
+        }
+
+        private void btnCalculateValues_Click(object sender, EventArgs e)
+        {
+            CalcNutritionalVal calcNutritionalVal = new CalcNutritionalVal(currentUser);
+            this.Hide();
+            calcNutritionalVal.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Under Construction");
         }
     }
 }

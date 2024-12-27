@@ -32,13 +32,18 @@ namespace FitSphere.Forms
         Serving servings;
         List<Direction> directions;
         decimal portianSize = 1;
+        String grams_per_portion = "default";
 
-        public RecipeDetails(String description, List<Ingredient1> ingredients, Serving servings, List<Direction> directions,string recipeName)
+        public RecipeDetails(String description, List<Ingredient1> ingredients, Serving servings, List<Direction> directions,string recipeName, string gr_per_portion) 
         {
             InitializeComponent();
             description = description;
             this.ingredients = ingredients;
             this.servings = servings;
+           this.grams_per_portion = gr_per_portion;
+
+            //MessageBox.Show(grams_per_portion);
+            
             //MessageBox.Show(servings.protein);
             displayIngredients(ingredients);
             displayServings(servings);
@@ -87,12 +92,12 @@ namespace FitSphere.Forms
                 }
                 else
                 {
-                    MessageBox.Show("No image URL found in the JSON response.");
+                    return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                return;
             }
 
         }
@@ -113,7 +118,7 @@ namespace FitSphere.Forms
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Internal Error","Ingredient list is null", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         
@@ -129,11 +134,12 @@ namespace FitSphere.Forms
                 }
 
                 // MessageBox.Show(ingredientsStringBuilder.ToString());
-                txtDirections.Text = directionsStringBuilder.ToString();
+                txtDirections.Text = directionsStringBuilder.ToString() + Environment.NewLine+ 
+                "Serve "+grams_per_portion+" grams per person.";
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Internal Error", "Direction list is null", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -142,29 +148,33 @@ namespace FitSphere.Forms
             if (servings != null)
             {
                 txtNutrition.Text =
-                    "Calories : " + (ParseToDecimal(servings.calories)) * portianSize + Environment.NewLine +
-                    "Calium : " + (ParseToDecimal(servings.calcium)) * portianSize + Environment.NewLine +
-                    "Carbohydrate : " + (ParseToDecimal(servings.carbohydrate)) * portianSize + Environment.NewLine +
-                    "Cholesterol : " + (ParseToDecimal(servings.cholesterol)) * portianSize + Environment.NewLine +
-                    "Fat : " + (ParseToDecimal(servings.fat)) * portianSize + Environment.NewLine +
-                    "Fiber : " + (ParseToDecimal(servings.fiber)) * portianSize + Environment.NewLine +
-                    "Iron : " + (ParseToDecimal(servings.iron)) * portianSize + Environment.NewLine +
-                    "Monounsaturated Fat : " + (ParseToDecimal(servings.monounsaturated_fat)) * portianSize + Environment.NewLine +
-                    "Polyunsaturated Fat : " + (ParseToDecimal(servings.polyunsaturated_fat)) * portianSize + Environment.NewLine +
-                    "Potassium : " + (ParseToDecimal(servings.potassium)) * portianSize + Environment.NewLine +
-                    "Protein : " + (ParseToDecimal(servings.protein)) * portianSize + Environment.NewLine +
-                    "Saturated_fat : " + (ParseToDecimal(servings.saturated_fat)) * portianSize + Environment.NewLine +
-                    "Serving_size : " + (ParseToDecimal(servings.serving_size)) * portianSize + Environment.NewLine +
-                    "Sodium : " + (ParseToDecimal(servings.sodium)) * portianSize + Environment.NewLine +
-                    "Sugar : " + (ParseToDecimal(servings.sugar)) * portianSize + Environment.NewLine +
-                    "Trans_fat : " + (ParseToDecimal(servings.trans_fat)) * portianSize + Environment.NewLine +
-                    "Vitamin_c : " + (ParseToDecimal(servings.vitamin_c)) * portianSize + Environment.NewLine;
+
+                   
+                    "Grams per Portion : "+ grams_per_portion+ Environment.NewLine+
+                    //Environment.NewLine+
+                    "Calories per Portion : " + (ParseToDecimal(servings.calories)) * portianSize + Environment.NewLine +
+                    "Calium per Portion : " + (ParseToDecimal(servings.calcium)) * portianSize + Environment.NewLine +
+                    "Carbohydrate per Portion : " + (ParseToDecimal(servings.carbohydrate)) * portianSize + Environment.NewLine +
+                    "Cholesterol per Portion : " + (ParseToDecimal(servings.cholesterol)) * portianSize + Environment.NewLine +
+                    "Fat per Portion : " + (ParseToDecimal(servings.fat)) * portianSize + Environment.NewLine +
+                    "Fiber per Portion : " + (ParseToDecimal(servings.fiber)) * portianSize + Environment.NewLine +
+                    "Iron per Portion : " + (ParseToDecimal(servings.iron)) * portianSize + Environment.NewLine +
+                    "Monounsaturated Fat per Portion : " + (ParseToDecimal(servings.monounsaturated_fat)) * portianSize + Environment.NewLine +
+                    "Polyunsaturated Fat per Portion : " + (ParseToDecimal(servings.polyunsaturated_fat)) * portianSize + Environment.NewLine +
+                    "Potassium per Portion : " + (ParseToDecimal(servings.potassium)) * portianSize + Environment.NewLine +
+                    "Protein per Portion : " + (ParseToDecimal(servings.protein)) * portianSize + Environment.NewLine +
+                    "Saturated_fat per Portion : " + (ParseToDecimal(servings.saturated_fat)) * portianSize + Environment.NewLine +
+                    "Serving_size per Portion : " + (ParseToDecimal(servings.serving_size)) * portianSize + Environment.NewLine +
+                    "Sodium per Portion : " + (ParseToDecimal(servings.sodium)) * portianSize + Environment.NewLine +
+                    "Sugar per Portion : " + (ParseToDecimal(servings.sugar)) * portianSize + Environment.NewLine +
+                    "Trans_fat per Portion : " + (ParseToDecimal(servings.trans_fat)) * portianSize + Environment.NewLine +
+                    "Vitamin_c per Portion : " + (ParseToDecimal(servings.vitamin_c)) * portianSize + Environment.NewLine;
 
 
             }
             else
             {
-                MessageBox.Show("Null");
+                MessageBox.Show("Internal Error", "Servings list is null", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

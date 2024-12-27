@@ -39,7 +39,7 @@ namespace FitSphere.API
             { "oauth_nonce", oauthNonce },
             { "format", "json" },
             { "oauth_version", oauthVersion },
-            { "method", "recipe.get" },
+            { "method", "recipe.get.v2" },
             { "recipe_id", id }
         };
 

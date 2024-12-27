@@ -93,6 +93,16 @@ namespace FitSphere.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap border_01 {
+            get {
+                object obj = ResourceManager.GetObject("border-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap family_custom {
             get {
                 object obj = ResourceManager.GetObject("family custom", resourceCulture);

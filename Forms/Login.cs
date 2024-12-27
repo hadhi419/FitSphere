@@ -51,7 +51,7 @@ namespace FitSphere.Forms
                     if (VerifyPassword(password, data.Password))
                     {
                       
-                        Home home = new Home(data.Username);
+                        Home home = new Home(data.Username, data.Email);
      
                         this.Hide();
                         home.Show();

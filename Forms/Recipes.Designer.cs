@@ -46,6 +46,8 @@
             flowLayoutRecipes = new FlowLayoutPanel();
             button2 = new Button();
             pictureBox1 = new PictureBox();
+            comboBox1 = new ComboBox();
+            label3 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             flowLayoutRecipes.SuspendLayout();
@@ -86,7 +88,7 @@
             lblUser.AutoSize = true;
             lblUser.BackColor = Color.Transparent;
             lblUser.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUser.ForeColor = Color.PaleTurquoise;
+            lblUser.ForeColor = Color.White;
             lblUser.Location = new Point(1015, 19);
             lblUser.Margin = new Padding(3);
             lblUser.MaximumSize = new Size(140, 15);
@@ -108,6 +110,7 @@
             btnCalculateValues.TabIndex = 5;
             btnCalculateValues.Text = "Calculate Nutritional Values";
             btnCalculateValues.UseVisualStyleBackColor = false;
+            btnCalculateValues.Click += btnCalculateValues_Click_1;
             // 
             // btnIngredients
             // 
@@ -207,7 +210,7 @@
             txtSearch.ForeColor = Color.OrangeRed;
             txtSearch.Location = new Point(12, 82);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(1001, 23);
+            txtSearch.Size = new Size(617, 23);
             txtSearch.TabIndex = 7;
             // 
             // btnSearch
@@ -217,7 +220,7 @@
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(1019, 82);
+            btnSearch.Location = new Point(635, 81);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(104, 23);
             btnSearch.TabIndex = 8;
@@ -254,17 +257,42 @@
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "High to Low Calories", "Low to High Calories" });
+            comboBox1.Location = new Point(968, 85);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(138, 23);
+            comboBox1.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.PeachPuff;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.OrangeRed;
+            label3.Location = new Point(914, 88);
+            label3.Name = "label3";
+            label3.Size = new Size(48, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Sort By";
+            // 
             // Recipes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1136, 609);
+            Controls.Add(label3);
+            Controls.Add(comboBox1);
             Controls.Add(flowLayoutRecipes);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
             Controls.Add(button1);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            MaximumSize = new Size(1152, 648);
             Name = "Recipes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Recipes";
@@ -298,5 +326,7 @@
         private FlowLayoutPanel flowLayoutRecipes;
         private Button button2;
         private PictureBox pictureBox1;
+        private ComboBox comboBox1;
+        private Label label3;
     }
 }

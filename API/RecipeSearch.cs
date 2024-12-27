@@ -21,7 +21,7 @@ namespace FitSphere.API
         string accessSecret = "";
         string requestUrl = "https://platform.fatsecret.com/rest/";
 
-        public async Task<RecipeApiResponse> LoadRecipes(string search)
+        public async Task<RecipeApiResponse> LoadRecipes(string search, string sortingMethod)
         {
             try
             {
@@ -40,8 +40,10 @@ namespace FitSphere.API
             { "oauth_nonce", oauthNonce },
             { "format", "json" },
             { "oauth_version", oauthVersion },
-            { "method", "recipes.search" },
-            { "search_expression", search }
+            { "method", "recipes.search.v3" },
+            { "search_expression", search },
+            { "sort_by",sortingMethod },
+            { "max_results","50" }
             };
 
                 // Step 3: Normalize Parameters

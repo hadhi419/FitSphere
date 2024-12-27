@@ -25,6 +25,21 @@ namespace FitSphere.Forms
             timer1.Tick += showMeal;
 
         }
+        public string mail;
+
+        public MyRecipes(String username, string email)
+        {
+            InitializeComponent();
+
+            currentUser = username;
+            mail = email;
+            lblUser.Text = username;
+
+            timer1.Start();
+            timer1.Tick += timer1_Tick;
+            timer1.Tick += showMeal;
+
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -98,6 +113,30 @@ namespace FitSphere.Forms
             Ingredients ingredients = new Ingredients(currentUser);
             this.Hide();
             ingredients.Show();
+        }
+
+        private void MyRecipes_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCalculateValues_Click(object sender, EventArgs e)
+        {
+            CalcNutritionalVal calcNutritionalVal = new CalcNutritionalVal(currentUser);
+            this.Hide();
+            calcNutritionalVal.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Under Construction");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(mail);
+            addMyRecipeDetails.Show();
+
         }
     }
 }

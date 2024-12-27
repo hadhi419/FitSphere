@@ -42,6 +42,7 @@
             btnCalculateValues = new Button();
             btnIngredients = new Button();
             panel1 = new Panel();
+            button3 = new Button();
             button2 = new Button();
             btnMyRecipes = new Button();
             button1 = new Button();
@@ -168,8 +169,9 @@
             btnRecipes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRecipes.ForeColor = Color.White;
             btnRecipes.Location = new Point(320, 0);
+            btnRecipes.MaximumSize = new Size(1920, 1080);
             btnRecipes.Name = "btnRecipes";
-            btnRecipes.Size = new Size(160, 50);
+            btnRecipes.Size = new Size(160, 0);
             btnRecipes.TabIndex = 3;
             btnRecipes.Text = "Recipes";
             btnRecipes.UseVisualStyleBackColor = false;
@@ -180,7 +182,7 @@
             lblUser.AutoSize = true;
             lblUser.BackColor = Color.Transparent;
             lblUser.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUser.ForeColor = Color.PaleTurquoise;
+            lblUser.ForeColor = Color.White;
             lblUser.Location = new Point(1015, 19);
             lblUser.Margin = new Padding(3);
             lblUser.MaximumSize = new Size(140, 15);
@@ -202,6 +204,7 @@
             btnCalculateValues.TabIndex = 5;
             btnCalculateValues.Text = "Calculate Nutritional Values";
             btnCalculateValues.UseVisualStyleBackColor = false;
+            btnCalculateValues.Click += btnCalculateValues_Click_1;
             // 
             // btnIngredients
             // 
@@ -220,6 +223,7 @@
             // panel1
             // 
             panel1.BackColor = Color.OrangeRed;
+            panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(lblUser);
             panel1.Controls.Add(btnCalculateValues);
@@ -231,6 +235,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1152, 50);
             panel1.TabIndex = 11;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.OrangeRed;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(318, 0);
+            button3.Name = "button3";
+            button3.Size = new Size(160, 50);
+            button3.TabIndex = 40;
+            button3.Text = "Recipes";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -538,6 +557,8 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(button1);
+            MaximumSize = new Size(1152, 648);
+            MinimumSize = new Size(1152, 648);
             Name = "Ingredients";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ingredients";
@@ -594,5 +615,6 @@
         private TextBox txtCarb;
         private PictureBox pctrIngredient;
         private PictureBox pictureBox1;
+        private Button button3;
     }
 }

@@ -102,6 +102,7 @@
             btnCalculateValues.TabIndex = 5;
             btnCalculateValues.Text = "Calculate Nutritional Values";
             btnCalculateValues.UseVisualStyleBackColor = false;
+            btnCalculateValues.Click += btnCalculateValues_Click;
             // 
             // btnIngredients
             // 
@@ -201,6 +202,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // timer1
             // 

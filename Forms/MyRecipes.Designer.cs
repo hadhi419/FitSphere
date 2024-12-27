@@ -37,14 +37,17 @@
             btnRecipes = new Button();
             btnMyRecipes = new Button();
             panel2 = new Panel();
+            pictureBox2 = new PictureBox();
             lblMealTime = new Label();
             label2 = new Label();
             label1 = new Label();
-            pictureBox1 = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            panel3 = new Panel();
+            button1 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // btnHome
@@ -103,6 +106,7 @@
             btnCalculateValues.TabIndex = 5;
             btnCalculateValues.Text = "Calculate Nutritional Values";
             btnCalculateValues.UseVisualStyleBackColor = false;
+            btnCalculateValues.Click += btnCalculateValues_Click;
             // 
             // btnIngredients
             // 
@@ -152,6 +156,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(lblMealTime);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
@@ -159,6 +164,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1144, 28);
             panel2.TabIndex = 6;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.logoOrange_01_01;
+            pictureBox2.Location = new Point(-68, -19);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(236, 75);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
             // 
             // lblMealTime
             // 
@@ -193,19 +208,32 @@
             label1.TabIndex = 3;
             label1.Text = "fitSphere";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.bg_01_01;
-            pictureBox1.Location = new Point(-2, 76);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1138, 534);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 7;
-            pictureBox1.TabStop = false;
-            // 
             // timer1
             // 
             timer1.Interval = 1000;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(button1);
+            panel3.Location = new Point(2, 77);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1131, 535);
+            panel3.TabIndex = 29;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.OrangeRed;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(80, 87);
+            button1.Name = "button1";
+            button1.Size = new Size(180, 23);
+            button1.TabIndex = 0;
+            button1.Text = "Add a New Recipe";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // MyRecipes
             // 
@@ -215,15 +243,18 @@
             Controls.Add(btnHome);
             Controls.Add(panel1);
             Controls.Add(panel2);
-            Controls.Add(pictureBox1);
+            Controls.Add(panel3);
+            MaximumSize = new Size(1152, 648);
             Name = "MyRecipes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MyRecipes";
+            Load += MyRecipes_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -240,7 +271,9 @@
         private Label lblMealTime;
         private Label label2;
         private Label label1;
-        private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
+        private PictureBox pictureBox2;
+        private Panel panel3;
+        private Button button1;
     }
 }

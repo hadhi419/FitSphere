@@ -95,6 +95,12 @@ namespace FitSphere.Forms
             home.Show();
             this.Hide();
         }
+        private void btnCalculateValues_Click(object sender, EventArgs e)
+        {
+            CalcNutritionalVal calcNutritionalVal = new CalcNutritionalVal(currentUser);
+            this.Hide();
+            calcNutritionalVal.Show();
+        }
 
         private void btnRecipes_Click(object sender, EventArgs e)
         {
@@ -105,8 +111,8 @@ namespace FitSphere.Forms
 
         private void btnRecipes_Click_1(object sender, EventArgs e)
         {
-            MyRecipes myRecipes = new MyRecipes(currentUser);
-            myRecipes.Show();
+            Recipes recipes = new Recipes(currentUser);
+            recipes.Show();
             this.Hide();
 
         }
@@ -142,7 +148,7 @@ namespace FitSphere.Forms
             string quantity = txtQuantity.Text;
 
             // Check if either field is empty
-            if (string.IsNullOrWhiteSpace(ingredient) || string.IsNullOrWhiteSpace(quantity))
+            if (string.IsNullOrEmpty(ingredient) || string.IsNullOrWhiteSpace(quantity))
             {
                 MessageBox.Show("Please enter a valid query.");
                 return;
@@ -180,12 +186,12 @@ namespace FitSphere.Forms
                 }
                 else
                 {
-                    MessageBox.Show("No valid data found in the API response.");
+                    MessageBox.Show("Internal Error!", "No valid data found in the API response", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                MessageBox.Show($"An error occurred: {ex.Message}", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             GetPicture getPicture = new GetPicture();
@@ -223,12 +229,12 @@ namespace FitSphere.Forms
                 }
                 else
                 {
-                    MessageBox.Show("No image URL found in the JSON response.");
+                    return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         int i = 1;
@@ -271,12 +277,12 @@ namespace FitSphere.Forms
                 }
                 else
                 {
-                    MessageBox.Show("No image URL found in the JSON response.");
+                    return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -284,6 +290,20 @@ namespace FitSphere.Forms
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCalculateValues_Click_1(object sender, EventArgs e)
+        {
+            CalcNutritionalVal calcNutritionalVal = new CalcNutritionalVal(currentUser);
+            this.Hide();
+            calcNutritionalVal.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Recipes recipes = new Recipes(currentUser);
+            this.Hide();
+            recipes.Show(); 
         }
     }
 }

@@ -41,7 +41,7 @@
             // 
             // btnSignup
             // 
-            btnSignup.BackColor = Color.OrangeRed;
+            btnSignup.BackColor = Color.Green;
             btnSignup.FlatAppearance.BorderSize = 0;
             btnSignup.FlatStyle = FlatStyle.Flat;
             btnSignup.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -83,6 +83,7 @@
             txtUsername.PlaceholderText = "Username";
             txtUsername.Size = new Size(232, 23);
             txtUsername.TabIndex = 0;
+            txtUsername.KeyPress += txtUsername_KeyPress;
             // 
             // txtPassword
             // 
@@ -103,16 +104,16 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(0, -1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(463, 391);
+            panel1.Size = new Size(463, 384);
             panel1.TabIndex = 17;
             panel1.Paint += panel1_Paint;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.logoOrange_01_021;
-            pictureBox1.Location = new Point(119, -31);
+            pictureBox1.Location = new Point(113, -31);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(221, 228);
+            pictureBox1.Size = new Size(227, 238);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
