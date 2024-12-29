@@ -12,6 +12,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Forms\confirmEmal.cs" />
+    <Compile Remove="Forms\confirmEmal.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Forms\confirmEmal.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="logoOrange-01-01.ico" />
   </ItemGroup>
 

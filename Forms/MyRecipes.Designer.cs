@@ -43,11 +43,20 @@
             label1 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             panel3 = new Panel();
-            button1 = new Button();
+            panel5 = new Panel();
+            pictureBox3 = new PictureBox();
+            btnViewMyRecipes = new Button();
+            panel4 = new Panel();
+            pictureBox1 = new PictureBox();
+            btnAddNewRecipe = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnHome
@@ -215,25 +224,93 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(button1);
+            panel3.Controls.Add(panel5);
+            panel3.Controls.Add(panel4);
             panel3.Location = new Point(2, 77);
             panel3.Name = "panel3";
             panel3.Size = new Size(1131, 535);
             panel3.TabIndex = 29;
             // 
-            // button1
+            // panel5
             // 
-            button1.BackColor = Color.OrangeRed;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(80, 87);
-            button1.Name = "button1";
-            button1.Size = new Size(180, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Add a New Recipe";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            panel5.Controls.Add(pictureBox3);
+            panel5.Controls.Add(btnViewMyRecipes);
+            panel5.Location = new Point(583, 42);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(511, 440);
+            panel5.TabIndex = 2;
+            panel5.MouseEnter += panel5_MouseEnter;
+            panel5.MouseLeave += panel5_MouseLeave;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.view_01;
+            pictureBox3.Location = new Point(3, 78);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(505, 224);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 1;
+            pictureBox3.TabStop = false;
+            pictureBox3.MouseEnter += pictureBox3_MouseEnter;
+            pictureBox3.MouseLeave += pictureBox3_MouseLeave;
+            // 
+            // btnViewMyRecipes
+            // 
+            btnViewMyRecipes.BackColor = Color.Sienna;
+            btnViewMyRecipes.FlatAppearance.BorderSize = 0;
+            btnViewMyRecipes.FlatStyle = FlatStyle.Flat;
+            btnViewMyRecipes.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnViewMyRecipes.ForeColor = Color.White;
+            btnViewMyRecipes.Location = new Point(0, 344);
+            btnViewMyRecipes.Name = "btnViewMyRecipes";
+            btnViewMyRecipes.Size = new Size(511, 95);
+            btnViewMyRecipes.TabIndex = 0;
+            btnViewMyRecipes.Text = "View My Recipes";
+            btnViewMyRecipes.UseVisualStyleBackColor = false;
+            btnViewMyRecipes.MouseEnter += btnViewMyRecipes_MouseEnter;
+            btnViewMyRecipes.MouseLeave += btnViewMyRecipes_MouseLeave;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(pictureBox1);
+            panel4.Controls.Add(btnAddNewRecipe);
+            panel4.Location = new Point(38, 42);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(511, 440);
+            panel4.TabIndex = 1;
+            panel4.Click += panel4_Click;
+            panel4.MouseEnter += panel4_MouseEnter;
+            panel4.MouseLeave += panel4_MouseLeave;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.add_01;
+            pictureBox1.Location = new Point(3, 78);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(505, 224);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click_2;
+            pictureBox1.MouseEnter += pictureBox1_MouseEnter;
+            pictureBox1.MouseLeave += pictureBox1_MouseLeave;
+            // 
+            // btnAddNewRecipe
+            // 
+            btnAddNewRecipe.BackColor = Color.OrangeRed;
+            btnAddNewRecipe.FlatAppearance.BorderSize = 0;
+            btnAddNewRecipe.FlatStyle = FlatStyle.Flat;
+            btnAddNewRecipe.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddNewRecipe.ForeColor = Color.White;
+            btnAddNewRecipe.Location = new Point(0, 344);
+            btnAddNewRecipe.Name = "btnAddNewRecipe";
+            btnAddNewRecipe.Size = new Size(511, 95);
+            btnAddNewRecipe.TabIndex = 0;
+            btnAddNewRecipe.Text = "Add a New Recipe";
+            btnAddNewRecipe.UseVisualStyleBackColor = false;
+            btnAddNewRecipe.Click += button1_Click;
+            btnAddNewRecipe.MouseEnter += btnAddNewRecipe_MouseEnter;
+            btnAddNewRecipe.MouseLeave += btnAddNewRecipe_MouseLeave;
             // 
             // MyRecipes
             // 
@@ -255,6 +332,10 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -274,6 +355,11 @@
         private System.Windows.Forms.Timer timer1;
         private PictureBox pictureBox2;
         private Panel panel3;
-        private Button button1;
+        private Panel panel4;
+        private PictureBox pictureBox1;
+        private Button btnAddNewRecipe;
+        private Panel panel5;
+        private PictureBox pictureBox3;
+        private Button btnViewMyRecipes;
     }
 }

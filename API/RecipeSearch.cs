@@ -21,15 +21,18 @@ namespace FitSphere.API
         string accessSecret = "";
         string requestUrl = "https://platform.fatsecret.com/rest/";
 
-        public async Task<RecipeApiResponse> LoadRecipes(string search, string sortingMethod)
+        public async Task<RecipeApiResponse> LoadRecipes(string search, string sortingMethod, string type)
         {
             try
             {
+                MessageBox.Show(type);
                 // Step 1: OAuth Parameters
                 string oauthTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
                 string oauthNonce = Guid.NewGuid().ToString("N");
                 string oauthVersion = "1.0";
                 string oauthSignatureMethod = "HMAC-SHA1";
+
+
 
                 // Step 2: API Parameters
                 var parameters = new Dictionary<string, string>
@@ -43,7 +46,9 @@ namespace FitSphere.API
             { "method", "recipes.search.v3" },
             { "search_expression", search },
             { "sort_by",sortingMethod },
-            { "max_results","50" }
+            { "max_results","50" },
+            { "recipe_types",type },
+            {"recipe_types_matchall","true" }
             };
 
                 // Step 3: Normalize Parameters

@@ -40,7 +40,7 @@ namespace FitSphere.Forms
                 else
                 {
                     var data = GetVariables();
-                    DocumentReference docRef = db.Collection("Userdata").Document($"{email}").Collection("Recpes").Document($"{data.RecipeName}");
+                    DocumentReference docRef = db.Collection("Recipes").Document(data.RecipeName);
                     await docRef.SetAsync(data);
                     MessageBox.Show("Added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -60,13 +60,15 @@ namespace FitSphere.Forms
             string recipeDescirption = txtDescription.Text;
             string recipeIngredients = txtIngredients.Text;
             string recipeDirections = txtDirections.Text;
+            string Email = email;
 
             return new MyRecipe
             {
                 RecipeName = recipeName,
                 Description = recipeDescirption,
                 Ingredients = recipeIngredients,
-                Directions = txtDirections.Text
+                Directions = recipeDirections,
+                Email = Email
             };
         }
 

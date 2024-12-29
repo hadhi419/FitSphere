@@ -112,6 +112,10 @@ namespace FitSphere.Forms
                 {
                     MessageBox.Show("Input a recipe name or an Ingredient and Choose how you want to sort the result by droping down the 'Sort By\"", "Ohhh!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }else if(string.IsNullOrEmpty(txtSearch.Text) && string.IsNullOrEmpty(comboBox1.Text) && string.IsNullOrEmpty(cmbType.Text))
+                {
+                    MessageBox.Show("Input a recipe name or an Ingredient, Choose how you want to sort the result by droping down the 'Sort By' and a type", "Ohhh!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
 
             }
@@ -130,11 +134,41 @@ namespace FitSphere.Forms
                     {
                         sortingMethod = "caloriesPerServingAscending";
                     }
-                    var response = await recipeSearch.LoadRecipes(txtSearch.Text,sortingMethod);
+
+                    string type="";
+
+                    switch (cmbType.Text)
+                    {
+                        case "Breakfast":
+                            type = "Breakfast";
+                            break;
+                        case "Lunch":
+                            type = "Lunch";
+                            break;
+                        case "Snack":
+                            type = "Snack";
+                            break;
+                        case "Dessert":
+                            type = "Dessert";
+                            break;
+                        case "Appetizer":
+                            type = "Appetizer";
+                            break;
+                        case "Baked":
+                            type = "Baked";
+                            break;
+                        case "All":
+                            type = "breakfast, snack, baked, dessert, Baked"; // Handle cases where the input doesn't match any option
+                            break;
+                    }
+
+                    MessageBox.Show(type);
+
+                    var response = await recipeSearch.LoadRecipes(txtSearch.Text,sortingMethod,type);
 
                     if (response == null)
                     {
-                        MessageBox.Show("Internal Error! (Response is Null)", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No recipes found for given keyword", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 

@@ -138,5 +138,119 @@ namespace FitSphere.Forms
             addMyRecipeDetails.Show();
 
         }
+
+        private void addNewRecipe_BackColorChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void panel4_MouseHover(object sender, EventArgs e)
+        //{
+        //    panel4.BackColor = Color.LightGreen;
+        //}
+
+        //private void pictureBox1_MouseHover(object sender, EventArgs e)
+        //{
+        //    panel4.BackColor = Color.LightGreen;
+        //}
+
+        private void panel4_MouseEnter(object sender, EventArgs e)
+        {
+            panel4.BackColor = Color.LightGreen;
+        }
+
+        private void panel4_MouseLeave(object sender, EventArgs e)
+        {
+            panel4.BackColor = Color.White;
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            panel4.BackColor = Color.LightGreen;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            panel4.BackColor = Color.White;
+        }
+
+        private void btnAddNewRecipe_MouseEnter(object sender, EventArgs e)
+        {
+            panel4.BackColor = Color.LightGreen;
+        }
+
+        private void btnAddNewRecipe_MouseLeave(object sender, EventArgs e)
+        {
+            panel4.BackColor = Color.White;
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(mail);
+            addMyRecipeDetails.Show();
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(mail);
+            addMyRecipeDetails.Show();
+        }
+
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(mail);
+            addMyRecipeDetails.Show();
+        }
+
+        private void pictureBox1_Click_2(object sender, EventArgs e)
+        {
+            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(mail);
+            addMyRecipeDetails.Show();
+        }
+
+        private void panel5_MouseEnter(object sender, EventArgs e)
+        {
+            panel5.BackColor = Color.Khaki;
+        }
+
+        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        {
+            panel5.BackColor = Color.Khaki;
+        }
+
+        private void btnViewMyRecipes_MouseEnter(object sender, EventArgs e)
+        {
+            panel5.BackColor = Color.Khaki;
+        }
+
+        private void panel5_MouseLeave(object sender, EventArgs e)
+        {
+            panel5.BackColor = Color.White;
+        }
+
+        private void pictureBox3_MouseLeave(object sender, EventArgs e)
+        {
+            panel5.BackColor = Color.White;
+        }
+
+        private void btnViewMyRecipes_MouseLeave(object sender, EventArgs e)
+        {
+            panel5.BackColor = Color.White;
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+            MessageBox.Show("Under Construction");
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Under Construction");
+        }
+
+        private void btnViewMyRecipes_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Under Construction");
+        }
     }
 }

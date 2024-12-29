@@ -63,6 +63,16 @@ namespace FitSphere.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_01 {
+            get {
+                object obj = ResourceManager.GetObject("add-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap alevate_01 {
             get {
                 object obj = ResourceManager.GetObject("alevate-01", resourceCulture);
@@ -96,6 +106,26 @@ namespace FitSphere.Properties {
         internal static System.Drawing.Bitmap border_01 {
             get {
                 object obj = ResourceManager.GetObject("border-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap custom {
+            get {
+                object obj = ResourceManager.GetObject("custom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap custom1 {
+            get {
+                object obj = ResourceManager.GetObject("custom1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +226,16 @@ namespace FitSphere.Properties {
         internal static System.Drawing.Bitmap snanks {
             get {
                 object obj = ResourceManager.GetObject("snanks", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap view_01 {
+            get {
+                object obj = ResourceManager.GetObject("view-01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

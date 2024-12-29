@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace FitSphere.Classes
 {
     [FirestoreData]
-    internal class UserData
+    public class UserData
     {
         [FirestoreProperty]
         public String Username { get; set; }

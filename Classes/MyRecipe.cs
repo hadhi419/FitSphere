@@ -22,6 +22,9 @@ namespace FitSphere.Classes
 
             [FirestoreProperty]
             public String Directions { get; set; }
+            
+            [FirestoreProperty]
+            public String Email { get; set; }
 
 
 

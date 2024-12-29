@@ -52,7 +52,7 @@
             txtDescription.BackColor = Color.White;
             txtDescription.BorderStyle = BorderStyle.None;
             txtDescription.ForeColor = SystemColors.ActiveCaptionText;
-            txtDescription.Location = new Point(-106, 49);
+            txtDescription.Location = new Point(11, 49);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.ReadOnly = true;
@@ -67,7 +67,7 @@
             lblRecipeName.BackColor = Color.White;
             lblRecipeName.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRecipeName.ForeColor = Color.OrangeRed;
-            lblRecipeName.Location = new Point(-110, 24);
+            lblRecipeName.Location = new Point(7, 24);
             lblRecipeName.Name = "lblRecipeName";
             lblRecipeName.Size = new Size(172, 24);
             lblRecipeName.TabIndex = 1;
@@ -81,7 +81,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(-104, 183);
+            label1.Location = new Point(13, 183);
             label1.Name = "label1";
             label1.Size = new Size(130, 22);
             label1.TabIndex = 3;
@@ -112,7 +112,7 @@
             // 
             // pictureRecipe
             // 
-            pictureRecipe.Location = new Point(504, 44);
+            pictureRecipe.Location = new Point(621, 44);
             pictureRecipe.Name = "pictureRecipe";
             pictureRecipe.Size = new Size(100, 100);
             pictureRecipe.TabIndex = 23;
@@ -123,7 +123,7 @@
             txtDirections.BackColor = Color.PeachPuff;
             txtDirections.BorderStyle = BorderStyle.None;
             txtDirections.ForeColor = Color.Black;
-            txtDirections.Location = new Point(485, 212);
+            txtDirections.Location = new Point(602, 212);
             txtDirections.Multiline = true;
             txtDirections.Name = "txtDirections";
             txtDirections.ScrollBars = ScrollBars.Both;
@@ -136,7 +136,7 @@
             label4.BackColor = Color.White;
             label4.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ActiveCaptionText;
-            label4.Location = new Point(485, 187);
+            label4.Location = new Point(602, 187);
             label4.Name = "label4";
             label4.Size = new Size(119, 22);
             label4.TabIndex = 21;
@@ -150,7 +150,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Snow;
-            button2.Location = new Point(851, 577);
+            button2.Location = new Point(968, 577);
             button2.Name = "button2";
             button2.Size = new Size(113, 33);
             button2.TabIndex = 1;
@@ -165,7 +165,7 @@
             btnChangePortion.FlatStyle = FlatStyle.Flat;
             btnChangePortion.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnChangePortion.ForeColor = Color.Snow;
-            btnChangePortion.Location = new Point(178, 134);
+            btnChangePortion.Location = new Point(295, 134);
             btnChangePortion.Name = "btnChangePortion";
             btnChangePortion.Size = new Size(75, 23);
             btnChangePortion.TabIndex = 0;
@@ -178,7 +178,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(-105, 136);
+            label3.Location = new Point(12, 136);
             label3.Name = "label3";
             label3.Size = new Size(131, 17);
             label3.TabIndex = 8;
@@ -189,7 +189,7 @@
             nmrcPortion.BackColor = Color.White;
             nmrcPortion.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             nmrcPortion.ForeColor = SystemColors.ActiveCaptionText;
-            nmrcPortion.Location = new Point(35, 134);
+            nmrcPortion.Location = new Point(152, 134);
             nmrcPortion.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nmrcPortion.Name = "nmrcPortion";
             nmrcPortion.Size = new Size(120, 23);
@@ -201,7 +201,7 @@
             txtNutrition.BackColor = Color.PeachPuff;
             txtNutrition.BorderStyle = BorderStyle.None;
             txtNutrition.ForeColor = Color.Black;
-            txtNutrition.Location = new Point(-101, 466);
+            txtNutrition.Location = new Point(16, 466);
             txtNutrition.Multiline = true;
             txtNutrition.Name = "txtNutrition";
             txtNutrition.ScrollBars = ScrollBars.Both;
@@ -214,7 +214,7 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(-104, 436);
+            label2.Location = new Point(13, 436);
             label2.Name = "label2";
             label2.Size = new Size(187, 22);
             label2.TabIndex = 5;
@@ -226,7 +226,7 @@
             txtIngredients.BackColor = Color.PeachPuff;
             txtIngredients.BorderStyle = BorderStyle.None;
             txtIngredients.ForeColor = Color.Black;
-            txtIngredients.Location = new Point(-100, 212);
+            txtIngredients.Location = new Point(17, 212);
             txtIngredients.Multiline = true;
             txtIngredients.Name = "txtIngredients";
             txtIngredients.ScrollBars = ScrollBars.Both;
