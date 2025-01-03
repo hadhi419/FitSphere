@@ -35,11 +35,15 @@
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Google.Cloud.Firestore" Version="3.9.0" />
     <PackageReference Include="RestSharp" Version="112.1.0" />
+    <PackageReference Include="System.Text.Json" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="fatSecret">
       <HintPath>..\FatsECRET\DLLS\fatSecret\bin\Debug\fatSecret.dll</HintPath>
+    </Reference>
+    <Reference Include="fireStore">
+      <HintPath>..\FireStrore\fireStore\bin\Debug\fireStore.dll</HintPath>
     </Reference>
   </ItemGroup>
 

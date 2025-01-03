@@ -240,17 +240,35 @@ namespace FitSphere.Forms
 
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
-            MessageBox.Show("Under Construction");
+            myRecipesList myRecipesList = new myRecipesList();
+            myRecipesList.Show();
+            this.Hide(); ;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Under Construction");
+            myRecipesList myRecipesList = new myRecipesList();
+            myRecipesList.Show();
+            this.Hide();
         }
 
         private void btnViewMyRecipes_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Under Construction");
+            myRecipesList myRecipesList = new myRecipesList();
+            myRecipesList.Show();
+            this.Hide();
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewMyRecipes_Click_1(object sender, EventArgs e)
+        {
+            myRecipesList myRecipesList = new myRecipesList();
+            myRecipesList.Show();
+            this.Hide();
         }
     }
 }

@@ -251,6 +251,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click_1;
             pictureBox3.MouseEnter += pictureBox3_MouseEnter;
             pictureBox3.MouseLeave += pictureBox3_MouseLeave;
             // 
@@ -267,6 +268,7 @@
             btnViewMyRecipes.TabIndex = 0;
             btnViewMyRecipes.Text = "View My Recipes";
             btnViewMyRecipes.UseVisualStyleBackColor = false;
+            btnViewMyRecipes.Click += btnViewMyRecipes_Click_1;
             btnViewMyRecipes.MouseEnter += btnViewMyRecipes_MouseEnter;
             btnViewMyRecipes.MouseLeave += btnViewMyRecipes_MouseLeave;
             // 
