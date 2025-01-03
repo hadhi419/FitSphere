@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using RestSharp;
 
 
+
 namespace FitSphere.API
 {
     internal class RecipeSearch
@@ -25,7 +26,7 @@ namespace FitSphere.API
         {
             try
             {
-                MessageBox.Show(type);
+               // MessageBox.Show(type);
                 // Step 1: OAuth Parameters
                 string oauthTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
                 string oauthNonce = Guid.NewGuid().ToString("N");
@@ -111,7 +112,5 @@ namespace FitSphere.API
             }
             return null;
         }
-
-
     }
 }

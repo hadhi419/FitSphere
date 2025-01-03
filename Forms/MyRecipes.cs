@@ -58,7 +58,7 @@ namespace FitSphere.Forms
             TimeSpan breakfastEnd = new TimeSpan(10, 0, 0);  // 10:00 AM
             TimeSpan lunchStart = new TimeSpan(12, 0, 0);    // 12:00 PM
             TimeSpan lunchEnd = new TimeSpan(14, 0, 0);      // 2:00 PM
-            TimeSpan dinnerStart = new TimeSpan(18, 0, 0);   // 6:00 PM
+            TimeSpan dinnerStart = new TimeSpan(18, 9, 0);   // 6:00 PM
             TimeSpan dinnerEnd = new TimeSpan(21, 0, 0);     // 9:00 PM
 
             // Check which meal it is

@@ -237,10 +237,10 @@ namespace FitSphere.Forms
                 MessageBox.Show($"Error: {ex.Message}", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        int i = 1;
+        //int i = 1;
         private async void btnNext_Click(object sender, EventArgs e)
         {
-            i++;
+           // i++;
 
             GetPicture getPicture = new GetPicture();
 
@@ -254,7 +254,7 @@ namespace FitSphere.Forms
                 JObject json = JObject.Parse(jsonResponse);
 
                 // Extract the first result's medium image URL
-                string imageUrl = json["results"]?[i]?["urls"]?["regular"]?.ToString();
+                string imageUrl = json["results"]?[4]?["urls"]?["regular"]?.ToString();
 
 
                 //textBox1.Text = (jsonResponse);

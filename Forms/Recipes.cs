@@ -162,13 +162,13 @@ namespace FitSphere.Forms
                             break;
                     }
 
-                    MessageBox.Show(type);
+                   // MessageBox.Show(type);
 
                     var response = await recipeSearch.LoadRecipes(txtSearch.Text,sortingMethod,type);
 
                     if (response == null)
                     {
-                        MessageBox.Show("No recipes found for given keyword", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No recipes found for the given keyword", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -205,7 +205,7 @@ namespace FitSphere.Forms
                 // Create a new button for each recipe
                 var recipeButton = new System.Windows.Forms.Button
                 {
-                    Text = recipe.recipe_name,
+                    Text = recipe.recipe_name+"     "+recipe.recipe_nutrition.calories+" Calories+ ",
                     Tag = recipe, // Store the recipe object in the button's Tag
                     Width = 1070,
                     Height = 50,
