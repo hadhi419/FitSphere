@@ -27,17 +27,19 @@ namespace FitSphere.Forms
         {
             try
             {
+                Home home = new Home();
+                string email = home.mail; 
                 fireStore.FireStoreAPI firestore = new fireStore.FireStoreAPI();
 
                 // MessageBox.Show(type);
 
-                string response = await firestore.getRecipes("hadhi@gmail.com");
+                string response = await firestore.getRecipes(email);
                 MessageBox.Show(response);
 
                 // Deserialize JSON response into RecipeApiResponse
                 List<MyRecipeModel> apiResponse = JsonConvert.DeserializeObject<List<MyRecipeModel>>(response);
 
-                
+
                 if (apiResponse != null)
                 {
                     DisplayRecipes(apiResponse);
@@ -53,10 +55,11 @@ namespace FitSphere.Forms
 
 
             }
-            catch (Exception ex) { 
-                MessageBox.Show(ex.Message);    
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
-            
+
         }
 
 
@@ -70,12 +73,12 @@ namespace FitSphere.Forms
                 // Create a new button for each recipe
                 var recipeButton = new System.Windows.Forms.Button
                 {
-                    Text = recipe.RecipeName ,
+                    Text = recipe.RecipeName,
                     Tag = recipe, // Store the recipe object in the button's Tag
                     Width = 1070,
                     Height = 50,
                     Margin = new Padding(10),
-                    BackColor = Color.Tomato,
+                    BackColor = Color.LightGreen,
                     ForeColor = Color.White,
                     Font = new Font("Arial", 9, FontStyle.Bold),
                     TextAlign = ContentAlignment.MiddleLeft, // Left-align the text
@@ -83,7 +86,7 @@ namespace FitSphere.Forms
                                                 // Set margin of 10 pixels on all sides
                 };
 
-               // recipeButton.Click += RecipeButton_Click;
+                // recipeButton.Click += RecipeButton_Click;
 
 
                 // Attach Click Event
@@ -93,6 +96,11 @@ namespace FitSphere.Forms
                 flowLayoutRecipes.Controls.Add(recipeButton);
             }
 
+
+        }
+
+        private void myRecipesList_Load(object sender, EventArgs e)
+        {
 
         }
     }

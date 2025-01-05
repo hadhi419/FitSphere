@@ -35,6 +35,8 @@ namespace FitSphere.Forms
             mail = email;
             lblUser.Text = username;
 
+            MessageBox.Show(currentUser);
+
             timer1.Start();
             timer1.Tick += timer1_Tick;
             timer1.Tick += showMeal;
@@ -134,7 +136,8 @@ namespace FitSphere.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(mail);
+            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(currentUser);
+            MessageBox.Show(currentUser);
             addMyRecipeDetails.Show();
 
         }
@@ -186,13 +189,13 @@ namespace FitSphere.Forms
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
-            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(mail);
+            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails();
             addMyRecipeDetails.Show();
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(mail);
+            AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails();
             addMyRecipeDetails.Show();
         }
 

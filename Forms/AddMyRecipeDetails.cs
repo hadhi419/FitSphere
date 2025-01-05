@@ -17,11 +17,19 @@ namespace FitSphere.Forms
 {
     public partial class AddMyRecipeDetails : Form
     {
-        public string email;
-        public AddMyRecipeDetails(string mail)
+        public string _username;
+        public AddMyRecipeDetails()
         {
             InitializeComponent();
-            email = "hadhi@gmail.com";
+           
+        }
+
+        public AddMyRecipeDetails(string username)
+        {
+            InitializeComponent();
+            this._username = username;
+            MessageBox.Show(_username);
+
         }
 
         private async void btnAdd_Click(object sender, EventArgs e)
@@ -39,6 +47,7 @@ namespace FitSphere.Forms
                 }
                 else
                 {
+                   
                     var data = GetVariables();
                     DocumentReference docRef = db.Collection("Recipes").Document(data.RecipeName);
                     await docRef.SetAsync(data);
@@ -60,7 +69,8 @@ namespace FitSphere.Forms
             string recipeDescirption = txtDescription.Text;
             string recipeIngredients = txtIngredients.Text;
             string recipeDirections = txtDirections.Text;
-            string Email = email;
+            string username = _username;
+
 
             return new MyRecipe
             {
@@ -68,7 +78,7 @@ namespace FitSphere.Forms
                 Description = recipeDescirption,
                 Ingredients = recipeIngredients,
                 Directions = recipeDirections,
-                Email = Email
+                Username = username
             };
         }
 

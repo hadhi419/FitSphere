@@ -67,7 +67,7 @@
             btnAllRecipes.BackColor = Color.Green;
             btnAllRecipes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAllRecipes.ForeColor = Color.White;
-            btnAllRecipes.Location = new Point(12, 65);
+            btnAllRecipes.Location = new Point(894, 65);
             btnAllRecipes.Name = "btnAllRecipes";
             btnAllRecipes.Size = new Size(208, 44);
             btnAllRecipes.TabIndex = 2;
@@ -85,6 +85,7 @@
             Controls.Add(panel1);
             Name = "myRecipesList";
             Text = "myRecipesList";
+            Load += myRecipesList_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

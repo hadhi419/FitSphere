@@ -12,8 +12,8 @@ namespace FitSphere.Forms
 {
     public partial class Home : Form
     {
-        string currentUser;
-        string mail;
+        public string currentUser;
+        public string mail;
         public Home(String username, string email)
         {
             InitializeComponent();
@@ -27,14 +27,27 @@ namespace FitSphere.Forms
             timer1.Tick += showMeal;
 
         }
-        
+
         public Home(String username)
         {
             InitializeComponent();
 
             currentUser = username;
             lblUser.Text = username;
-            
+
+
+            timer1.Start();
+            timer1.Tick += timer1_Tick;
+            timer1.Tick += showMeal;
+
+        }
+
+        public Home()
+        {
+            InitializeComponent();
+
+           
+
 
             timer1.Start();
             timer1.Tick += timer1_Tick;
@@ -86,7 +99,7 @@ namespace FitSphere.Forms
         private void btnMyRecipes_Click(object sender, EventArgs e)
         {
 
-            MyRecipes myRecipes = new MyRecipes(currentUser);
+            MyRecipes myRecipes = new MyRecipes(currentUser,mail);
             myRecipes.Show();
             this.Hide();
         }
@@ -134,6 +147,11 @@ namespace FitSphere.Forms
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Under Construction");
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
