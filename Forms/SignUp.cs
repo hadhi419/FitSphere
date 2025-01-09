@@ -65,9 +65,10 @@ namespace FitSphere
                                     var data = GetVariables();
                                     DocumentReference docRef = db.Collection("Userdata").Document(data.Email);
                                     await docRef.SetAsync(data);
-                                    Home home = new Home(data.Username);
+                                    // Home home = new Home(data.Username);
+                                    Login login = new Login();
                                     this.Hide();
-                                    home.Show();
+                                    login.Show();
                                 }
                             }
                         }

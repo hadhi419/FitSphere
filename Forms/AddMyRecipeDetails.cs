@@ -28,7 +28,7 @@ namespace FitSphere.Forms
         {
             InitializeComponent();
             this._username = username;
-            MessageBox.Show(_username);
+            //MessageBox.Show(_username);
 
         }
 
@@ -65,7 +65,7 @@ namespace FitSphere.Forms
 
         public MyRecipe GetVariables()
         {
-            string recipeName = txtRecipeName.Text;
+            string recipeName = txtRecipeName.Text.ToLower();
             string recipeDescirption = txtDescription.Text;
             string recipeIngredients = txtIngredients.Text;
             string recipeDirections = txtDirections.Text;

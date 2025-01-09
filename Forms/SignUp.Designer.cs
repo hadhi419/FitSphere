@@ -113,7 +113,7 @@
             pictureBox1.Image = Properties.Resources.logoOrange_01_021;
             pictureBox1.Location = new Point(113, -31);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(227, 238);
+            pictureBox1.Size = new Size(232, 238);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;

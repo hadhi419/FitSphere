@@ -35,7 +35,7 @@ namespace FitSphere.Forms
             mail = email;
             lblUser.Text = username;
 
-            MessageBox.Show(currentUser);
+            //MessageBox.Show(currentUser);
 
             timer1.Start();
             timer1.Tick += timer1_Tick;
@@ -137,7 +137,7 @@ namespace FitSphere.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             AddMyRecipeDetails addMyRecipeDetails = new AddMyRecipeDetails(currentUser);
-            MessageBox.Show(currentUser);
+            //MessageBox.Show(currentUser);
             addMyRecipeDetails.Show();
 
         }
@@ -243,35 +243,37 @@ namespace FitSphere.Forms
 
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
-            myRecipesList myRecipesList = new myRecipesList();
+            myRecipesList myRecipesList = new myRecipesList(mail, currentUser);
             myRecipesList.Show();
             this.Hide(); ;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            myRecipesList myRecipesList = new myRecipesList();
+            myRecipesList myRecipesList = new myRecipesList(mail, currentUser);
             myRecipesList.Show();
             this.Hide();
         }
 
         private void btnViewMyRecipes_Click(object sender, EventArgs e)
         {
-            myRecipesList myRecipesList = new myRecipesList();
+            myRecipesList myRecipesList = new myRecipesList(mail, currentUser);
             myRecipesList.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-
+            myRecipesList myRecipesList = new myRecipesList(mail, currentUser);
+            myRecipesList.Show();
+            //this.Hide();
         }
 
         private void btnViewMyRecipes_Click_1(object sender, EventArgs e)
         {
-            myRecipesList myRecipesList = new myRecipesList();
+            myRecipesList myRecipesList = new myRecipesList(mail,currentUser);
             myRecipesList.Show();
-            this.Hide();
+            //this.Hide();
         }
     }
 }
